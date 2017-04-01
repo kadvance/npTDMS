@@ -49,7 +49,7 @@ A complete example of writing a TDMS file with various object types and properti
 is given below::
 
     from nptdms import TdmsWriter, RootObject, GroupObject, ChannelObject
-
+    import numpy
     root_object = RootObject(properties={
         "prop1": "foo",
         "prop2": 3,
@@ -58,7 +58,7 @@ is given below::
         "prop1": 1.2345,
         "prop2": False,
     })
-    data = np.array([1.0, 2.0, 3.0, 4.0, 5.0])
+    data = numpy.array([1.0, 2.0, 3.0, 4.0, 5.0])
     channel_object = ChannelObject("group_1", "channel_1", data, properties={})
 
     with TdmsWriter("my_file.tdms") as tdms_writer:
